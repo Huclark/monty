@@ -1,9 +1,21 @@
-push 1djndi234
-pint
-pop
-push 1
+
+push 10
+push 20
+push 30
+push 40
+push 50
+
 pall
-push 4
-push 5
-pop
+
+push 60
+push 70
+push 80
+push 90
+push 100
+
+pall
+
+push abc
+
+
 pall

@@ -30,7 +30,10 @@ int main(int argc, char **argv)
 	}
 	file_input = get_input(file);
 	if (!file_input)
+	{
+		fclose(file);
 		exit(EXIT_SUCCESS);
+	}
 
 	while (file_input[idx])
 	{
@@ -44,6 +47,8 @@ int main(int argc, char **argv)
 		if (status != 0)
 		{
 			free_array(file_input);
+			if (stack)
+				free_list(&stack);
 			fclose(file);
 			exit(EXIT_FAILURE);
 		}

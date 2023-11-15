@@ -1,5 +1,7 @@
 #include "monty.h"
 
+char **get_input(FILE *file);
+
 /**
 * get_input - Takes in user input and returns it as a string
 * @file: File descriptor to read from

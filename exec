@@ -1,0 +1,65 @@
+
+/**
+ * execute - Executes opcoodes in each line in a monty ByteCode file
+ * @file_input: An array of strings of each line in ByteCode file
+ * Return: 0 on success or 1 on failure
+*/
+int execute(char **file_input)
+{
+	stack_t **stack = NULL;
+	unsigned int line_number = 1;
+	char *tokens, **tokenized_array;
+	int idx, i = 0, j = 0, status = 1;
+	instruction_t opcodes[] = {
+		{"push", &push},
+		{"pall", &pall},
+		{NULL, NULL}
+	};
+
+	while (file_input[i])
+	{
+		tokenized_array = malloc(sizeof(char *) * READ_BUFFER);
+		if (!tokenized_array)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			exit(EXIT_FAILURE);
+		}
+		tokens = strtok(file_input[i], " \t\r\n");
+		while (tokens)
+		{
+			tokenized_array[j] = strdup(tokens);
+			if (!tokenized_array[j])
+			{
+				fprintf(stderr, "Error: malloc failed\n");
+				exit(EXIT_FAILURE);
+			}
+			j++;
+			tokens = (NULL, " \t\r\n");
+		}
+		tokenized_array[j] = NULL;
+		idx = 0;
+		while (opcodes[idx].opcode)
+		{
+			if (strcmp(tokenized_array[0], opcodes[idx].opcode) == 0)
+			{
+				opcodes[idx].f(stack, line_number);
+				status = 0;
+				break;
+			}
+			idx++;
+		}
+		if (status && tokenized_array)
+		{
+			fprintf(stderr,"L%d: unknown instruction %s", line_number, tokenized_array[0]);
+			free_array(tokenized_array);
+			free_array(file_input);
+			exit(EXIT_FAILURE)
+		}
+		free_array(tokenized_array);
+		i++;
+		line_number++;
+		file_input++;
+	}
+	free_array(file_input);
+	return (EXIT_SUCCESS);
+}

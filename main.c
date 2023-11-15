@@ -27,8 +27,6 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
-	/* Get user input */
 	file_input = get_input(file);
 	if (!file_input)
 		exit(EXIT_SUCCESS);
@@ -36,6 +34,11 @@ int main(int argc, char **argv)
 	while (file_input[idx])
 	{
 		line_number++;
+		if (isempty(file_input[idx]) == 1)
+		{
+			idx++;
+			continue;
+		}
 		status = execute(file_input[idx], line_number, &stack);
 		if (status != 0)
 		{

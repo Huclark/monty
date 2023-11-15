@@ -44,6 +44,7 @@ int main(int argc, char **argv)
 		if (status != 0)
 		{
 			free_array(file_input);
+			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 		idx++;

@@ -42,7 +42,7 @@ typedef struct data_hub
 	int number;
 } data;
 
-
+extern data flag;
 /**
 * struct instruction_s - opcode and its function
 * @opcode: the opcode
@@ -72,6 +72,7 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 
 /* MACROS */
 #define READ_BUFFER		1024

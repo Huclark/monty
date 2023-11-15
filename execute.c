@@ -21,6 +21,7 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 		{"pop", pop},
 		{"swap", swap},
 		{"nop", nop},
+		{"add", add},
 		{NULL, NULL}
 	};
 
@@ -163,7 +164,7 @@ void pop(stack_t **stack, unsigned int line_number)
 */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	int len = 0;
+	size_t len = 0;
 	stack_t *temp = *stack;
 
 	while (temp)

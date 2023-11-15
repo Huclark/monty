@@ -32,6 +32,18 @@ typedef struct stack_s
 } stack_t;
 
 /**
+ * struct data_hub - Contains variables
+ * @opcode_flag: Checks if memory allocation error occured in opcode function
+ * @number: Integer to push to stack
+*/
+typedef struct data_hub
+{
+	int opcode_flag;
+	int number;
+} data;
+
+
+/**
 * struct instruction_s - opcode and its function
 * @opcode: the opcode
 * @f: function to handle the opcode

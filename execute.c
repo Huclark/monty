@@ -1,7 +1,7 @@
 #include "monty.h"
 
 int execute(char *file_input, unsigned int line_no, stack_t **stack);
-int number, opcode_flag = 1;
+data flag;
 
 /**
  * execute - Executes opcodes in each line in a monty ByteCode file
@@ -19,6 +19,8 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 		{"pall", pall},
 		{NULL, NULL}
 	};
+
+	flag.opcode_flag = 1;
 
 	tokenized_array = malloc(sizeof(char *) * READ_BUFFER);
 	if (!tokenized_array)
@@ -51,7 +53,7 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 			{
 				if (_isdigit(tokenized_array[1]))
 				{
-					number = atoi(tokenized_array[1]);
+					flag.number = atoi(tokenized_array[1]);
 					push(stack, line_no);
 					status = 0;
 					break;
@@ -74,7 +76,7 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 	}
 	free_array(tokenized_array);
 
-	if (!opcode_flag)
+	if (!flag.opcode_flag)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
@@ -96,10 +98,10 @@ void push(stack_t **stack, unsigned int line_number)
 		if (*stack)
 			free_list(stack);
 
-		opcode_flag = 0;
+		flag.opcode_flag = 0;
 		return;
 	}
-	new_node->n = number;
+	new_node->n = flag.number;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 

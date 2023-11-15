@@ -18,6 +18,7 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 
@@ -128,4 +129,26 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 
 	printf("%d\n", (*stack)->n);
+}
+
+
+
+/**
+ * pop - Prints the value at the top of the stack, followed by a new line.
+ * @stack: A pointer to a pointer to the head of the stack_t list
+ * @line_number: Line number processed
+*/
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	if (!*stack)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		flag.opcode_flag = 0;
+		return;
+	}
+
+	*stack = (*stack)->next;
+	free(temp);
 }

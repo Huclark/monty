@@ -31,7 +31,6 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
-
 /**
 * struct instruction_s - opcode and its function
 * @opcode: the opcode
@@ -48,9 +47,8 @@ typedef struct instruction_s
 
 
 /* Custom function prototypes */
-char **get_input(int);
-int _getchar(int);
-int execute(char *, unsigned int);
+char **get_input(FILE *);
+int execute(char *, unsigned int, stack_t **);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void free_array(char **);

@@ -1,0 +1,141 @@
+#include "main.h"
+
+char **get_input(FILE *file);
+
+/**
+* get_input - Takes in user input and returns it as a string
+* @file: File stream to read from
+* Return: User input string or NULL if it failed
+*/
+char **get_input(FILE *file) {
+    int line_idx = 0, arr_idx = 0, lbsize = READ_BUFFER, la_size = READ_BUFFER;
+    char *line_buffer = NULL, **line_arr = NULL;
+    char *temp;
+
+    line_arr = malloc(sizeof(char *) * la_size);
+    if (!line_arr) {
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    while (1) {
+        line_buffer = malloc(sizeof(char) * lbsize);
+        if (!line_buffer) {
+            fprintf(stderr, "Error: malloc failed\n");
+            free_array(line_arr);
+            exit(EXIT_FAILURE);
+        }
+
+        if (fgets(line_buffer, lbsize, file) == NULL) {
+            free(line_buffer);
+            if (line_idx == 0) {
+                free_array(line_arr);
+                return NULL;
+            }
+            break;
+        }
+
+        // Remove newline character from the end
+        line_buffer[strcspn(line_buffer, "\n")] = '\0';
+
+        line_arr[arr_idx] = strdup(line_buffer);
+        if (!line_arr[arr_idx]) {
+            fprintf(stderr, "Error: malloc failed\n");
+            free_array(line_arr);
+            free(line_buffer);
+            exit(EXIT_FAILURE);
+        }
+
+        arr_idx++;
+        free(line_buffer);
+
+        line_idx = 0;
+        lbsize = READ_BUFFER;
+
+        if (arr_idx == la_size) {
+            la_size += READ_BUFFER;
+            temp = line_buffer;
+            line_arr = realloc(line_arr, la_size * sizeof(char *));
+            if (!line_arr) {
+                fprintf(stderr, "Error: malloc failed\n");
+                free(temp);
+                free_array(line_arr);
+                exit(EXIT_FAILURE);
+            }
+        }
+    }
+
+    line_arr[arr_idx] = NULL;
+    return line_arr;
+}
+
+/**
+* _getchar - Reads a character from stdin
+* @fd: The file descriptor to read from
+* Return: The character read (typecast as an int)
+*         Or EOF on failure or there is no character left
+*/
+int _getchar(int fd) {
+    char ch;
+
+    if (read(fd, &ch, 1) == 1)
+        return (ch);
+    else
+        return (EOF);
+}
+
+
+
+
+
+#include "main.h"
+
+char **get_input(FILE *file);
+
+/**
+* get_input - Takes in user input and returns it as a string
+* @file: File descriptor to read from
+* Return: User input string or NULL if it failed
+*/
+char **get_input(FILE *file)
+{
+    int arr_idx = 0, lbsize = READ_BUFFER, la_size = READ_BUFFER;
+    char *line_buffer = NULL, **line_arr = NULL;
+
+    line_arr = malloc(sizeof(char *) * la_size);
+    if (!line_arr)
+    {
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    while (fgets(line_buffer, lbsize, file))
+    {
+        line_buffer[strcspn(line_buffer, "\n")] = '\0';
+        line_arr[arr_idx] = strdup(line_buffer);
+
+        if (!line_arr[arr_idx])
+        {
+            fprintf(stderr, "Error: malloc failed\n");
+            free_array(line_arr);
+            free(line_buffer);
+            exit(EXIT_FAILURE);
+        }
+
+        arr_idx++;
+
+        // Free and reallocate line_buffer for the next iteration
+        free(line_buffer);
+        line_buffer = malloc(sizeof(char) * lbsize);
+        if (!line_buffer)
+        {
+            fprintf(stderr, "Error: malloc failed\n");
+            free_array(line_arr);
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    line_arr[arr_idx] = NULL;
+    free(line_buffer);
+    return line_arr;
+}

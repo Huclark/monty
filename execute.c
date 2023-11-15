@@ -19,6 +19,7 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 
@@ -134,7 +135,7 @@ void pint(stack_t **stack, unsigned int line_number)
 
 
 /**
- * pop - Prints the value at the top of the stack, followed by a new line.
+ * pop - Removes the top element of the stack
  * @stack: A pointer to a pointer to the head of the stack_t list
  * @line_number: Line number processed
 */
@@ -151,4 +152,37 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	*stack = (*stack)->next;
 	free(temp);
+}
+
+
+/**
+ * swap - Swaps the top two elements of the stack
+ * @stack: A pointer to a pointer to the head of the stack_t list
+ * @line_number: Line number processed
+*/
+void swap(stack_t **stack, unsigned int line_number)
+{
+	int len = 0;
+	stack_t *temp = *stack;
+
+	while (temp)
+	{
+		len++;
+		temp = temp->next;
+	}
+
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		flag.opcode_flag = 0;
+		return;
+	}
+
+	temp = *stack;
+	*stack = (*stack)->next;
+
+	temp->next = temp->next->next;
+	temp->prev = *stack;
+	(*stack)->next = temp;
+	(*stack)->prev = NULL;
 }

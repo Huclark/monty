@@ -76,7 +76,8 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 	}
 	if (status && tokenized_array)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s", line_no, tokenized_array[0]);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_no,
+				tokenized_array[0]);
 		free_array(tokenized_array);
 		return (EXIT_FAILURE);
 	}

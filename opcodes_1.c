@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * pall - all the values on the stack, starting from the top of the stack.

@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * _isdigit - Checks if a character is a decimal digit(0 -9)

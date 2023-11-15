@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 char **get_input(FILE *file);
 

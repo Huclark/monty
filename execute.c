@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 int execute(char *file_input, unsigned int line_no, stack_t **stack);
 int number, opcode_flag = 1;

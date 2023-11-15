@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * free_array - Frees the memory allocated for an array

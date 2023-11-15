@@ -17,6 +17,7 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 	instruction_t opcodes[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
@@ -109,4 +110,22 @@ void push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new_node;
 
 	*stack = new_node;
+}
+
+
+/**
+ * pint - Prints the value at the top of the stack, followed by a new line.
+ * @stack: A pointer to a pointer to the head of the stack_t list
+ * @line_number: Line number processed
+*/
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		flag.opcode_flag = 0;
+		return;
+	}
+
+	printf("%d\n", (*stack)->n);
 }

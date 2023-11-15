@@ -68,6 +68,7 @@ void push(stack_t **, unsigned int);
 char *_isdigit(char *);
 void free_list(stack_t **);
 int isempty(char *str);
+void pint(stack_t **stack, unsigned int line_number);
 
 /* MACROS */
 #define READ_BUFFER		1024

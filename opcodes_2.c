@@ -74,6 +74,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 }
 
+
 /**
  * sub - Subtracts the top element of the stack from the second top
  *       element of the stack.
@@ -104,11 +105,12 @@ void sub(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
+
 /**
  * mydiv - divides the second top element of the stack
  *       by the top element of the stack.
  * @stack: A pointer to a pointer to the head of the stack_t list
- * @line_number: Line number processed
+ * @line_number: Line number processed currently.
 */
 void mydiv(stack_t **stack, unsigned int line_number)
 {

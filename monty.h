@@ -75,6 +75,7 @@ void nop(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void mydiv(stack_t **stack, unsigned int line_number);
+void mymul(stack_t **stack, unsigned int line_number);
 
 /* MACROS */
 #define READ_BUFFER		1024

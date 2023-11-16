@@ -19,11 +19,12 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 		{"pop", pop}, {"swap", swap}, {"nop", nop},
 		{"add", add}, {"sub", sub}, {"div", mydiv},
 		{"mul", mymul}, {"mod", mymod}, {"pchar", pchar},
-		 {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
-		{NULL, NULL}
+		{"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
+		{"queue", queue}, {"stack", _stack}, {NULL, NULL}
 	};
 
 	flag.opcode_flag = 1;
+	flag.number = 0;
 
 	tokenized_array = malloc(sizeof(char *) * READ_BUFFER);
 	if (!tokenized_array)

@@ -35,14 +35,17 @@ typedef struct stack_s
  * struct data_hub - Data hub for program
  * @opcode_flag: Checks if memory allocation error occured in opcode function
  * @number: Integer to push to stack
+ * @order: The order in which elements should be added to the data structure
 */
 typedef struct data_hub
 {
 	int opcode_flag;
 	int number;
+	int order;
 } data;
 
-extern data flag;
+extern data flag; /* Global data_hub struct variable */
+
 /**
 * struct instruction_s - opcode and its function
 * @opcode: the opcode
@@ -82,6 +85,8 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+void _stack(stack_t **stack, unsigned int line_number);
 
 /* MACROS */
 #define READ_BUFFER		1024

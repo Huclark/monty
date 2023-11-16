@@ -1,5 +1,7 @@
 #include "monty.h"
 
+void push(stack_t **stack, unsigned int line_number);
+
 /**
  * push - Pushes an element to the stack
  * @stack: A pointer to a pointer to the head of the stack_t list
@@ -8,6 +10,8 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
+	stack_t *temp = *stack;
+
 	(void)line_number;
 
 	if (!new_node)
@@ -19,14 +23,37 @@ void push(stack_t **stack, unsigned int line_number)
 		flag.opcode_flag = 0;
 		return;
 	}
+
 	new_node->n = flag.number;
-	new_node->prev = NULL;
-	new_node->next = *stack;
+	if (flag.order)
+	{
+		new_node->prev = NULL;
+		new_node->next = *stack;
 
-	if (*stack)
-		(*stack)->prev = new_node;
+		if (*stack)
+			(*stack)->prev = new_node;
 
-	*stack = new_node;
+		*stack = new_node;
+	}
+
+	else
+	{
+		if (*stack)
+		{
+			while (temp->next)
+				temp = temp->next;
+
+			temp->next = new_node;
+			new_node->prev = temp;
+			new_node->next = NULL;
+		}
+		else
+		{
+			*stack = new_node;
+			new_node->next = NULL;
+			new_node->prev = NULL;
+		}
+	}
 }
 
 

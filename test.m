@@ -1,31 +1,17 @@
-push 5
-push 2
-sub
+
+push -16
+push 4
+div
 pall
 
-push 10
-push 3
-sub
+push 8
+push -2
+div
 pall
 
-push -5
-push -3
-sub
+push 15
+div
 pall
 
-push 100
-push 0
-sub
-pall
-
-push 0
-push 10
-sub
-pall
-
-push 5
-sub
-pall
-
-sub
+div
 pall

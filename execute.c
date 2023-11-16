@@ -25,6 +25,7 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 		{"sub", sub},
 		{"div", mydiv},
 		{"mul", mymul},
+		{"mod", mymod},
 		{NULL, NULL}
 	};
 

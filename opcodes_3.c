@@ -122,3 +122,37 @@ void rotl(stack_t **stack, unsigned int line_number)
 	current->next = NULL;
 	current->prev = temp;
 }
+
+
+/**
+ * rotr - Rotates the stack to the bottom
+ * @stack: A pointer to a pointer to the head of the stack_t list
+ * @line_number: Line number processed
+*/
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack, *current = *stack;
+	size_t len = 0;
+
+	(void)line_number;
+
+	while (temp)
+	{
+		len++;
+		temp = temp->next;
+	}
+
+	if (len < 2)
+		return;
+
+	temp = *stack;
+
+	while (temp->next)
+		temp = temp->next;
+
+	temp->prev->next = NULL;
+	*stack = temp;
+	(*stack)->prev = NULL;
+	(*stack)->next = current;
+	current->prev = *stack;
+}

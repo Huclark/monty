@@ -3,7 +3,7 @@
 
 ## Table of Contents
 - [About](#about)
-- [Objective](#objective)
+- [Objectives](#objectives)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)

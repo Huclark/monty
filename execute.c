@@ -19,7 +19,7 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 		{"pop", pop}, {"swap", swap}, {"nop", nop},
 		{"add", add}, {"sub", sub}, {"div", mydiv},
 		{"mul", mymul}, {"mod", mymod}, {"pchar", pchar},
-		{"pstr", pstr},
+		 {"pstr", pstr}, {"rotl", rotl},
 		{NULL, NULL}
 	};
 

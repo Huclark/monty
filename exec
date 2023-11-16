@@ -27,7 +27,7 @@ int execute(char **file_input)
 		tokens = strtok(file_input[i], " \t\r\n");
 		while (tokens)
 		{
-			tokenized_array[j] = strdup(tokens);
+		tokenized_array[j] = strdup(tokens);
 			if (!tokenized_array[j])
 			{
 				fprintf(stderr, "Error: malloc failed\n");

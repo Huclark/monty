@@ -39,5 +39,6 @@ int isempty(char *str)
 			return (0); /* line contains a non-whitespace character */
 		i++;
 	}
+
 	return (1); /* line is empty */
 }

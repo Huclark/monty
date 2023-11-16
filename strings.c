@@ -11,6 +11,11 @@ char *_isdigit(char *str)
 
 	while (str[i] != '\0')
 	{
+		if (str[0] == '-')
+		{
+			i++;
+			continue;
+		}
 		if (str[i] < '0' || str[i] > '9')
 			return (NULL);
 		i++;

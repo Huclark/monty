@@ -23,7 +23,7 @@ char *_isdigit(char *str)
 
 
 /**
- * isempty - Checks if a string is empty(blank or newline)
+ * isempty - Checks if a string is empty(blank or newline) or a comment (#)
  * @str: string to check
  * Return: 1 if true or 0 if otherwise
 */
@@ -33,10 +33,12 @@ int isempty(char *str)
 
 	while (str[i] != '\0')
 	{
+		if (str[i] == '#')
+			return (1); /* line is a comment, consider it as empty */
 		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
-			return (0);
+			return (0); /* line contains a non-whitespace character */
 		i++;
 	}
 
-	return (1);
+	return (1); /* line is empty */
 }

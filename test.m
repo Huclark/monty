@@ -1,17 +1,26 @@
+# This is a test file for checking # commenting in Monty scripts
+# Comments are lines that start with a #
 
-push -16
-push 4
-div
+# Push some numbers onto the stack
+push 10
+push 20
+push 30
+
+# Print the stack
 pall
 
-push 8
-push -2
-div
+# Commented out push operation
+# push 40
+
+# More operations
+add
 pall
 
-push 15
-div
+# Swap and print
+swap
 pall
 
-div
+# Subtraction
+push 5
+sub
 pall

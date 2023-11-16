@@ -67,7 +67,7 @@ void sub(stack_t **stack, unsigned int line_number)
 
 	if (len < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		flag.opcode_flag = 0;
 		return;
 	}

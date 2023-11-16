@@ -113,6 +113,8 @@ Below are a list of operations for the stack and their purpose:<br>
 | `rotr` | - Rotates the stack to the bottom.<br> - The last element of the stack becomes the top element of the stack<br> - Usage: `rotr` |
 | `stack` | - Sets the format of the data to a stack (LIFO). This is the default behavior of the program.<br> - Usage: `stack` |
 | `queue` | - Sets the format of the data to a stack (FIFO).<br> - The top of the stack becomes the front of the queue<br> - The front of the queue becomes the top of the stack<br> - Usage: `queue` |
+### Limitations
+- This program only takes a file as an argument and does not run in an interactive mode.
 
 ## Contribution
 This is a team project with the following contributors:

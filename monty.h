@@ -70,7 +70,6 @@ void free_array(char **);
 void push(stack_t **, unsigned int);
 char *_isdigit(char *);
 void free_list(stack_t **);
-void rev_list(stack_t **stack);
 int isempty(char *str);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);

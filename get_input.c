@@ -16,12 +16,15 @@ char **get_input(FILE *file)
 	if (!line_arr)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	line_buffer = malloc(sizeof(char) * lbsize);
 	if (!line_buffer)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_array(line_arr);
+		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	while (fgets(line_buffer, lbsize, file) != NULL)
@@ -34,6 +37,7 @@ char **get_input(FILE *file)
 			fprintf(stderr, "Error: malloc failed\n");
 			free_array(line_arr);
 			free(line_buffer);
+			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 		arr_idx++;
@@ -43,6 +47,8 @@ char **get_input(FILE *file)
 		if (!line_buffer)
 		{
 			fprintf(stderr, "Error: malloc failed\n");
+			free_array(line_arr);
+			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 	}

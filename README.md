@@ -82,7 +82,7 @@ typedef struct instruction_s
 ## Installation
 1. Clone the repository:
 ```
-git clone https://githuv.com/Huclark/monty.git
+git clone https://github.com/Huclark/monty.git
 ```
 2. Use `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o monty` to compile.
 

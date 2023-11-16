@@ -7,6 +7,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
+	- [Limitations](#limitations)
 - [Contribution](#contribution)
 - [License](#license)
 
@@ -91,6 +92,27 @@ Run the executable with the bytecode file as an argument:<br>
 ./monty <file>
 ```
 where `<file>` is the path to the file containing Monty byte code.<br>
+The file should contain valid operations for the stack.
+Below are a list of operations for the stack and their purpose:<br>
+|   **OPCODE**  |    **PURPOSE**   |
+| :-------------: | :---------------- |
+| `push` | - Pushes an element to the stack <br>- Usage: `push <int>`, where `<int>` is an integer |
+| `pall` | - Prints all the values on the stack, starting from the top of the stack<br> - Usage: `pall` |
+| `pint` | - Prints the value at the top of the stack, followed by a new line<br> - Usage: `pint`
+| `pop` | - Removes the top element of the stack<br> - Usage: `pop` |
+| `swap` | - Swaps the top two elements of the stack<br> - Usage: `swap` |
+| `add` | - Adds the top two elements of the stack. The result is stored in the 2nd top element of the stack.<br> - The top element is removed so that at the end, the top element of the stack contains the result and the stack will be one element shorter <br> - Usage: `add` |
+| `nop` | - This opcode is redundant and does nothing.<br> - Usage: `nop` |
+| `sub` | - Subtracts the top two elements of the stack. The result is stored in the 2nd top element of the stack.<br> - The top element is removed so that at the end, the top element of the stack contains the result and the stack will be one element shorter <br> - Usage: `sub` |
+| `div` | - Divides the 2nd top element of the stack by the top element of the stack. The result is stored in the 2nd top element of the stack.<br> - The top element is removed so that at the end, the top element of the stack contains the result and the stack will be one element shorter <br> - Usage: `div` |
+| `mul` | - Multiplies the 2nd top element of the stack with the top element of the stack. The result is stored in the 2nd top element of the stack.<br> - The top element is removed so that at the end, the top element of the stack contains the result and the stack will be one element shorter <br> - Usage: `mul` |
+| `mod` | - computes the rest of the division of the second top element of the stack by the top element of the stack. The result is stored in the 2nd top element of the stack.<br> - The top element is removed so that at the end, the top element of the stack contains the result and the stack will be one element shorter <br> - Usage: `mod` |
+| `pchar` | - Prints the ASCII character of the value at the top of the stack, followed by a new line<br> - Usage: `pchar` |
+| `pstr` | - Prints the ASCII character of all the values in the stack, starting at the top of the stack, followed by a new line.<br> - Usage: `pstr` |
+| `rotl` | - Rotates the stack to the top.<br> - The top element of the stack becomes the last one, and the second top element of the stack becomes the first one<br> - Usage: `rotl` |
+| `rotr` | - Rotates the stack to the bottom.<br> - The last element of the stack becomes the top element of the stack<br> - Usage: `rotr` |
+| `stack` | - Sets the format of the data to a stack (LIFO). This is the default behavior of the program.<br> - Usage: `stack` |
+| `queue` | - Sets the format of the data to a stack (FIFO).<br> - The top of the stack becomes the front of the queue<br> - The front of the queue becomes the top of the stack<br> - Usage: `queue` |
 
 ## Contribution
 This is a team project with the following contributors:

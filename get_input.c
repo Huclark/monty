@@ -60,7 +60,6 @@ char **get_input(FILE *file)
 		free(line_buffer);
 		return (NULL);
 	}
-
 	free(line_buffer);
 	return (line_arr);
 }

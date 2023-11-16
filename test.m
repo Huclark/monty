@@ -5,22 +5,5 @@
 push 10
 push 20
 push 30
-
-# Print the stack
-pall
-
-# Commented out push operation
-# push 40
-
-# More operations
-add
-pall
-
-# Swap and print
-swap
-pall
-
-# Subtraction
-push 5
-sub
-pall
+push 72
+pchar

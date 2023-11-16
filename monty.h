@@ -77,6 +77,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void mydiv(stack_t **stack, unsigned int line_number);
 void mymul(stack_t **stack, unsigned int line_number);
 void mymod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 
 /* MACROS */
 #define READ_BUFFER		1024

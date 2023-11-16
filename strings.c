@@ -7,16 +7,16 @@
 */
 char *_isdigit(char *str)
 {
-	int i = 0;
+	if (*str == '-')
+		str++;
 
-	if (str[0] == '-')
-		*str = str[1];
-
-	while (str[i] != '\0')
+	while (*str != '\0')
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (*str == '.')
 			return (NULL);
-		i++;
+		if (*str < '0' || *str > '9')
+			return (NULL);
+		str++;
 	}
 	return (str);
 }

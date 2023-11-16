@@ -32,7 +32,7 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struct data_hub - Contains variables
+ * struct data_hub - Data hub for program
  * @opcode_flag: Checks if memory allocation error occured in opcode function
  * @number: Integer to push to stack
 */
@@ -78,6 +78,7 @@ void mydiv(stack_t **stack, unsigned int line_number);
 void mymul(stack_t **stack, unsigned int line_number);
 void mymod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 
 /* MACROS */
 #define READ_BUFFER		1024

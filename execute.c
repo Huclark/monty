@@ -15,18 +15,11 @@ int execute(char *file_input, unsigned int line_no, stack_t **stack)
 	char *tokens, **tokenized_array;
 	int idx = 0, j = 0, status = 1;
 	instruction_t opcodes[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"nop", nop},
-		{"add", add},
-		{"sub", sub},
-		{"div", mydiv},
-		{"mul", mymul},
-		{"mod", mymod},
-		{"pchar", pchar},
+		{"push", push}, {"pall", pall}, {"pint", pint},
+		{"pop", pop}, {"swap", swap}, {"nop", nop},
+		{"add", add}, {"sub", sub}, {"div", mydiv},
+		{"mul", mymul}, {"mod", mymod}, {"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 

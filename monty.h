@@ -62,7 +62,7 @@ typedef struct instruction_s
 
 
 /* Custom function prototypes */
-char **get_input(FILE *);
+void get_input(FILE *);
 int execute(char *, unsigned int, stack_t **);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);

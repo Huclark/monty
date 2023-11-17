@@ -9,11 +9,6 @@ int main(int argc, char **argv);
 */
 int main(int argc, char **argv)
 {
-	int idx = 0;
-	unsigned int line_number = 0;
-	int status;
-	char **file_input;
-	stack_t *stack = NULL;
 	FILE *file;
 
 	flag.order = 1;
@@ -30,34 +25,9 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	file_input = get_input(file);
-	if (!file_input)
-	{
-		fclose(file);
-		exit(EXIT_SUCCESS);
-	}
 
-	while (file_input[idx])
-	{
-		line_number++;
-		if (isempty(file_input[idx]) == 1)
-		{
-			idx++;
-			continue;
-		}
-		status = execute(file_input[idx], line_number, &stack);
-		if (status != 0)
-		{
-			free_array(file_input);
-			if (stack)
-				free_list(&stack);
-			fclose(file);
-			exit(EXIT_FAILURE);
-		}
-		idx++;
-	}
-	free_array(file_input);
-	free_list(&stack);
+	get_input(file);
+
 	fclose(file);
 	return (EXIT_SUCCESS);
 }

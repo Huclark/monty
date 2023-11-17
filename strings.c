@@ -7,6 +7,9 @@
 */
 char *_isdigit(char *str)
 {
+	if (!str)
+		return (NULL);
+
 	if (*str == '-')
 		str++;
 

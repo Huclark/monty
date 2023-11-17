@@ -37,12 +37,12 @@ void mymod(stack_t **stack, unsigned int line_number)
 	free(temp);
 }
 
-
 /**
  * pchar -  Prints the char at the top of the stack, followed by a new line.
  * @stack: A pointer to a pointer to the head of the stack_t list
  * @line_number: Line number processed
 */
+
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
@@ -73,6 +73,7 @@ void pchar(stack_t **stack, unsigned int line_number)
  * @stack: A pointer to a pointer to the head of the stack_t list
  * @line_number: Line number processed
 */
+
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
